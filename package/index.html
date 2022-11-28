@@ -16,7 +16,8 @@
             const manager = urlParams.get("t");
             if(manager == 'sileo' || manager == 'cydia') {
                 window.location.href = manager + "://package/"+ packageName;
-            } else {
+            }
+            if(packageName.length > 0) {
                 document.getElementById('cydia').href = document.getElementById('cydia').href + packageName;
                 document.getElementById('sileo').href = document.getElementById('sileo').href + packageName;
                 document.getElementById("links").style.display = "block";
