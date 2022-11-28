@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>TRappleDestek - Repo Package Router</title>
+    </head>
+    <body>
+        <h3>
+            <ul id="links" style="display:none;">
+                <li><a href="sileo://package/" id="sileo">Sileo</a></li>
+                <li><a href="cydia://package/" id="cydia">Cydia</a></li>
+            </ul>
+        </h3>
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const packageName = urlParams.get("p");
+            const manager = urlParams.get("t");
+            if(manager == 'sileo' || manager == 'cydia') {
+                window.location.href = manager + "://package/"+ packageName;
+            } else {
+                document.getElementById('cydia').href = document.getElementById('cydia').href + packageName;
+                document.getElementById('sileo').href = document.getElementById('sileo').href + packageName;
+                document.getElementById("links").style.display = "block";
+            }
+        </script>
+    </body>
+</html>
